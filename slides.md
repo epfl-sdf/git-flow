@@ -157,8 +157,6 @@ Ajout du --no-ff
 \center
 \includegraphics[width=7cm]{img/merge-no-ff.png}
 
-Demo
-
 ### Resolution de conflict
 
 Toujours runner `git status`.

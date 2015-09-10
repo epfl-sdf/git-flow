@@ -1,4 +1,4 @@
-%Git, Easy Branching
+%Git flow
 %Malik Bougacha
 %10 Septembre 2015
 
@@ -60,15 +60,12 @@ Branche de feature:
 
 * Nom de la feature.
 * Branche à la durée de vie courte.
+* Amélioration d'un composant.
 
-\pause
-
-Amélioration d'un composant.
-Branche à la durée de vie courte.
 
 ### Branche de feature
 
-* Basé sur la branche d'intégration
+* Basé sur la branche de développement
 * Mergée dans la branche de développement.
 
 \pause
@@ -106,7 +103,7 @@ Emplacement des résolutions des conflits avec la branche de développement
 * Branche à la durée de vie courte
 * Basée sur production
 
-* Merge sur la branche de développement ainsi que sur celle de production
+* Merge sur la branche de développement ainsi que sur celle de production (master)
 
 ### Interaction branche de release, production et hotfix
 
@@ -123,7 +120,7 @@ Emplacement des résolutions des conflits avec la branche de développement
 ### Ajout d'une feature
 
 ```sh
-git checkout -b developpment
+git checkout -b feature_super_bouton
 ```
 
 ### Ajout des modifications de la features
@@ -193,6 +190,7 @@ git merge --no-ff critical_feature
 ### Mise à jour de la branche de développement
 
 ```
+git checkout developpment
 git pull --rebase
 ```
 
@@ -334,6 +332,6 @@ Problème du workflow précèdent:
 
 ### Aller plus loin
 
-* En allemand: https://github.com/esc/clt-2015-git-workflows
+* En allemand: https://github.com/esc/clt-2015-git-workflows (Utilisation des schémas git)
 * Gitflow par commandes: https://github.com/nvie/gitflow.git
 * Gerrit flow: http://docs.openstack.org/infra/manual/developers.html

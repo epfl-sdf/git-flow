@@ -1,56 +1,46 @@
 %Git, Easy Branching
 %Malik Bougacha
-%25 août 2015
+%10 Septembre 2015
 
 # Introduction
 
 ## Git est puissant
 
-### With power comes great responsibility
+### With power comes great responsibilities
 
 Git sans workflow
 
 \center
 \includegraphics[width=4cm]{img/git_crazy.png}
 
-
-# Git flow 0.1
+# Requirements
 
 ### Monde idéal
 
-* Git devrait s'adapter à notre façon de travailler et pas l'inverse.
+* Adapter git à l'usage.
 \pause
 * Minimum de gestion de conflit dans la production
 \pause
 * Environnement suivant:
-
     * Feature
     * Dev
     * Prod
-
 \pause
-
-* Il devrait être possible d'appliquer un bug fix à la production et au dev
-* Il devrait être facile de sandboxer et de partager des essais
-
+* Il devrait être possible d'appliquer un bug fix à la production et au développement.
+* Il devrait être facile de sandboxer et de partager des essais.
 \pause
-
-* Il devrait être facile de promouvoir du code d'un environnement a un autre.
-
+* Il devrait être facile de promouvoir du code d'un environnement à un autre.
 \pause
-
-* Les conflits de merge de feature devraient être réglés par le développeur en amon 
-et non pas par l'integrateur
-
+* Conflits gérés par le développeur
+et non pas par l'intégrateur.
 \pause
+* Simplicité de patch pour la production et le développement.
 
-* Il devrait être simple de proposer un patch tant pour la production que pour le développement
+# Organisation des branches
 
-# Branching model
+### Correspondance branche
 
-### Mapping 
-
-Environment --> Branche (set de code)
+Environnement --> Branche (set de code)
 
 \pause
 
@@ -58,86 +48,82 @@ Branches:
 
 \pause
 
-* Feature branch
-* Developement
-* Production (master)
-* Fix
+* Feature
+* Développement
 * Release
+* Production (master)
+* Hotfix
 
 ### Branche de Feature
 
-branche de feature:
+Branche de feature:
 
-* Nom de la feature
-* Branche à la durée de vie courte
+* Nom de la feature.
+* Branche à la durée de vie courte.
 
 \pause
 
-Amélioration d'un composant
-branche à la durée de vie courte
+Amélioration d'un composant.
+Branche à la durée de vie courte.
 
-### Branche de Feature
+### Branche de feature
 
-* Base sur la branche d'intégration 
-* Mergée dans la branche de développement
+* Basé sur la branche d'intégration
+* Mergée dans la branche de développement.
 
-\pause 
+\pause
 
-Resolution des conflicts en amon
+Emplacement des résolutions des conflits avec la branche de développement 
 
-### Branche de Developpement
+### Branche de développement
 
-* Branche d'integration des features
-* Branche active a la duree de vie longue
+* Branche d'intégration des features.
+* Branche active à la durée de vie longue.
 
-\pause 
+### Interactions branche de développement et branche de feature
 
-Resolution des conflicts en amon
-
-### Interaction branche de Developpement et branche de feature
-
-\center 
+\center
 \includegraphics[width=3cm]{img/gitflow-feature.png}
 
 ### Branche de release
 
-* Branche de prerelease
-* Branche active a la duree de vie courte
-* Tag du numeros de version
+* Branche de pré-production
+* Branche active à la durée de vie courte
 
 ### Branche de production
 
-Branche existante (toujours sur la remote)
-Merge depuis la branche de developpment
+* Branche à la durée de vie longue (toujours sur la remote)
+* Merge depuis la branche de développement
+* Tag de version
 
-### Interation Branche de release et branche de production
+### Interaction branche de release et branche de production
 
-\center 
+\center
 \includegraphics[width=3cm]{img/gitflow-release.png}
 
 ### Branche de fix
 
-Branche à la durée de vie courte
-Basee sur production
+* Branche à la durée de vie courte
+* Basée sur production
 
-Merge Sur la branche de dev ainsi que sur celle de prod
+* Merge sur la branche de développement ainsi que sur celle de production
 
-### Interaction Branche de release, de prod et de fix
+### Interaction branche de release, production et hotfix
 
-\center 
+\center
 \includegraphics[width=3cm]{img/gitflow-hotfix.png}
 
-### Resume
+### Résumé
 
 \center
 \includegraphics[width=4cm]{img/gitflow.png}
 
-## Commandes du Workflow
+# Commandes du Workflow
 
 ### Ajout d'une feature
 
 ```sh
-git checkout developpment
+git checkout -b developpment
 ```
 
 ### Ajout des modifications de la features
@@ -152,19 +138,21 @@ git commit -m 'adding element for feature'
 
 ```
 git checkout developpment
-git merge --no-ff 
+git merge --no-ff
 ```
 
 ### 'merge --no-ff'
 
-En cas d'absence de conflict, git forward 
+En cas d'absence de conflit, git fast-forward
 
 * Perte de l'historique
-* Absence du commit de merge explicit
+* Absence du commit de merge explicite
+
+\pause
 
 Ajout du --no-ff
 
-* Creation automatique d'un commit de merge
+* Création automatique d'un commit de merge
 * Historique conserve
 
 ### 'merge --no-ff'
@@ -172,18 +160,20 @@ Ajout du --no-ff
 \center
 \includegraphics[width=7cm]{img/merge-no-ff.png}
 
-### Resolution de conflict 
+Demo
 
-toujours runner git status
+### Resolution de conflict
 
-En cas de probleme, git status 
+Toujours runner `git status`.
+
+En cas de problème, `git status`
 
 \pause
 
 \center
 \includegraphics[width=7cm]{img/status_all_the_things.jpg}
 
-### Resolution de conflict entre la branche de dev et celle de feature
+### Résolution de conflits entre la branche de développement et celle de feature
 
 ```
 git merge --abort # safe stop
@@ -195,56 +185,60 @@ git checkout developpment
 git merge --no-ff critical_feature
 ```
 
-### Mise a jour de la branche de developpement
+### Mise à jour de la branche de développement
 
 \center
 \includegraphics[width=2cm]{img/push-n-pull-result.png}
 
-### Mise a jour de la branche de developpement
+### Mise à jour de la branche de développement
 
 ```
 git pull --rebase
 ```
 
-\pause 
+\pause
 
-Conflict gere en upstream dans les branches de feature!
+Conflit géré en downstream dans les branches de feature !
 
-### Mise a jour de la branche de developpement
+### Mise a jour de la branche de développement
 
 \center
 \includegraphics[width=2cm]{img/push-n-pull-rebase-result.png}
 
-### Mise a jour de la branche de developpement
+### Mise a jour de la branche de développement
 
-Met les repos locaux en dessus  des commits deja presents dans la remote, 
-Les references des commits locaux changeront 
-Arbres lineaire
+Met les repos locaux en dessus  des commits déjà présents dans la remote,
+Les références des commits locaux changeront
+Arbres linéaire
 
-#Aparte sur le rebase
-
-### Rebase
-
-Change la base de la branche:
-
-\center
-\includegraphics[with=2cm]{img/gitflow-rebase-feature.png}
+# Aparté sur le rebase
 
 ### Rebase
 
-Change le sha du commit
+* Change la base de la branche.
 
 \pause
 
-Change le commit
+* Change le sha des commits.
 
+\pause
+
+* Change les commits.
+
+### Rebase
+
+\center
+\includegraphics[width=5.5cm]{img/gitflow-rebase-feature.png}
 
 ### Force
 
 traduction:
 
-j'ignore ce qui se trouve actullement de l'autre cote,
-j'ecrase les references existantes et les remplace par la mienne
+J'ignore ce qui se trouve actuellement de l'autre cote.
+
+\pause
+
+J'écrase les références existantes et les remplace par la mienne.
 
 ### Absolute power corrupt absolutely
 
@@ -258,75 +252,88 @@ j'ecrase les references existantes et les remplace par la mienne
 
 ### Solutions
 
-* Jamais utilise push force !
+* Ne jamais utiliser push force !
 
 \pause
 
-En cas d'exception se referer a la ligne d'avant.
+En cas d'exception se référer a la ligne d'avant.
 
-* N'utiliser le rebase que des branches n'apparaissant que sur ses branches locales
+\pause
 
-* dans le doute, utiliser le merge --no-ff
+* N'utiliser le rebase sur les branches locales
+* Dans le doute, utiliser le `merge --no-ff`.
 
 
-### Deployer en prod !
+### Déployer en production
 
 ```
-git checkout production
+git checkout master
 git merge --no-ff developpment
+git push origin master
 ```
 
 \pause
 
-Ici aussi, pas de conflict de merge, on ne fait qu'avancer 
+Pas de conflit de merge
+
+### Tagger la production
 
 
-### Conclusion intermediaire
+```
+git tag 0.1
+git push --tags
+```
 
-Scaling de team !
+* Alias au SHA, référence fixe du commit.
 
-transparence !
+\pause
+
+* Diffèrent d'une branche.
+
+### Conclusion intermédiaire
+
+Problème du workflow précèdent:
+
+* Transparence
+* Peer review
 
 # Gitlab, Gitflow 0.2
 
-### Gitlab overview
+### Gitlab
 
-* RoR interface for git remote
-* Gestion des acces par repository
+* Interface ruby on rail for git remote.
+* Gestion des accès par repository.
 
 ### Merge request
 
-* Merge dans la branche de devloppement des features sont publique
-* Deployment en prod fait de la meme maniere
-* Review des demandes de merges 
+* Merge dans la branche de développement des features sont publique.
+* Deployment en production fait de la même manière.
+* Review des demandes de merges
 
 ### Review
 
-* Est ce que je comprend ce qui a ete merge ?
-* Est ce que le nom des methodes est logique et comprenhensible ?
-* Nom des variables est correcte et comprehensible ?
-* une partie du code peut etre mieux ecrit ?
+* Est ce que je comprend ce qui a été mergé ?
+* Est ce que le nom des méthodes est logique et compréhensible ?
+* Nom des variables est correcte et compréhensible ?
+* Une partie du code peut être mieux écrite ?
 
-\pause 
+\pause
 
-Partage de la reponsabilite, le code appartient au developpeur avant d'etre merge, 
-Il devient la reponsabilite du grouppe a partir du merge.
+* Partage des responsabilités.
 
 ### Git facile
 
-* Gestion de modification des fichiers a travers la gui
+* Gestion des modifications des fichiers à travers la GUI.
 
-
-### Aparte github
+### Aparté Github
 
 * Merge request
 * Un fork est simplement une autre remote.
 * Public pour des contributions a l'open source ou publication.
-* Tous les labos de l'epfl sont dessus.
-
+* Tous les laboratoires de l'EPFL sont dessus.
 
 ### Aller plus loin
 
 * En allemand: https://github.com/esc/clt-2015-git-workflows
 * Gitflow par commandes: https://github.com/nvie/gitflow.git
-
+* Gerrit flow: http://docs.openstack.org/infra/manual/developers.html

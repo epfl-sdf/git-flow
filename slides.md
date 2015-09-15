@@ -19,7 +19,7 @@ Git sans workflow
 
 * Adapter git à l'usage.
 \pause
-* Minimum de gestion de conflit dans la production
+* Minimum de gestion de conflit dans la production.
 \pause
 * Environnement suivant:
     * Feature
@@ -65,7 +65,7 @@ Branche de feature:
 
 ### Branche de feature
 
-* Basé sur la branche de développement
+* Basé sur la branche de développement.
 * Mergée dans la branche de développement.
 
 \pause
@@ -203,7 +203,7 @@ Conflit géré en downstream dans les branches de feature !
 
 ### Mise a jour de la branche de développement
 
-Met les repos locaux en dessus  des commits déjà présents dans la remote,
+Met les repos locaux en dessus des commits déjà présents dans la remote,
 Les références des commits locaux changeront
 Arbres linéaire
 
@@ -215,7 +215,7 @@ Arbres linéaire
 
 \pause
 
-* Change le sha des commits.
+* Change le SHA des commits.
 
 \pause
 
@@ -230,7 +230,7 @@ Arbres linéaire
 
 traduction:
 
-J'ignore ce qui se trouve actuellement de l'autre cote.
+J'ignore ce qui se trouve actuellement de l'autre côté.
 
 \pause
 
@@ -252,7 +252,7 @@ J'écrase les références existantes et les remplace par la mienne.
 
 \pause
 
-En cas d'exception se référer a la ligne d'avant.
+En cas d'exception se référer à la ligne d'avant.
 
 \pause
 
@@ -302,14 +302,14 @@ Problème du workflow précèdent:
 
 ### Merge request
 
-* Merge dans la branche de développement des features sont publique.
-* Deployment en production fait de la même manière.
+* Merge dans la branche de développement des features sont publiques.
+* Déploiement en production fait de la même manière.
 * Review des demandes de merges
 
 ### Review
 
-* Est ce que je comprend ce qui a été mergé ?
-* Est ce que le nom des méthodes est logique et compréhensible ?
+* Est-ce que je comprend ce qui a été mergé ?
+* Est-ce que le nom des méthodes est logique et compréhensible ?
 * Nom des variables est correcte et compréhensible ?
 * Une partie du code peut être mieux écrite ?
 
@@ -323,7 +323,7 @@ Problème du workflow précèdent:
 
 ### Aparté Github
 
-* Merge request
+* Merge request.
 * Un fork est simplement une autre remote.
 * Public pour des contributions a l'open source ou publication.
 * Tous les laboratoires de l'EPFL sont dessus.

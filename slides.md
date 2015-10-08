@@ -54,7 +54,7 @@ Branches:
 * Production (master)
 * Hotfix
 
-### Branche de Feature
+### Branche de feature
 
 Branche de feature:
 
@@ -65,7 +65,7 @@ Branche de feature:
 
 ### Branche de feature
 
-* Basé sur la branche de développement.
+* Basée sur la branche de développement.
 * Mergée dans la branche de développement.
 
 \pause
@@ -84,14 +84,14 @@ Emplacement des résolutions des conflits avec la branche de développement
 
 ### Branche de release
 
-* Branche de pré-production
-* Branche active à la durée de vie courte
+* Branche de pré-production.
+* Branche active à la durée de vie courte.
 
 ### Branche de production
 
-* Branche à la durée de vie longue (toujours sur la remote)
-* Merge depuis la branche de développement
-* Tag de version
+* Branche à la durée de vie longue (toujours sur la remote).
+* Merge depuis la branche de développement.
+* Tag de version.
 
 ### Interaction branche de release et branche de production
 
@@ -100,10 +100,10 @@ Emplacement des résolutions des conflits avec la branche de développement
 
 ### Branche de fix
 
-* Branche à la durée de vie courte
-* Basée sur production
+* Branche à la durée de vie courte.
+* Basée sur production.
 
-* Merge sur la branche de développement ainsi que sur celle de production (master)
+* Merge sur la branche de développement ainsi que sur celle de production (master).
 
 ### Interaction branche de release, production et hotfix
 
@@ -120,7 +120,7 @@ Emplacement des résolutions des conflits avec la branche de développement
 ### Ajout d'une feature
 
 ```sh
-git checkout -b feature_super_bouton
+git checkout -b feature
 ```
 
 ### Ajout des modifications de la features
@@ -134,8 +134,8 @@ git commit -m 'adding element for feature'
 ### Merge de la feature
 
 ```
-git checkout developpment
-git merge --no-ff
+git checkout develop
+git merge --no-ff feature
 ```
 
 ### 'merge --no-ff'
@@ -149,8 +149,8 @@ En cas d'absence de conflit, git fast-forward
 
 Ajout du --no-ff
 
-* Création automatique d'un commit de merge
-* Historique conserve
+* Création automatique d'un commit de merge.
+* Historique conservé
 
 ### 'merge --no-ff'
 
@@ -172,10 +172,10 @@ En cas de problème, `git status`
 
 ```
 git merge --abort # safe stop
-git checkout critical_feature
-git merge --no-ff developpment
+git checkout feature_critical
+git merge --no-ff develop
 #RESOLUTION DE CONFLICT!
-git checkout developpment
+git checkout develop
 . . .
 git merge --no-ff critical_feature
 ```
@@ -188,24 +188,24 @@ git merge --no-ff critical_feature
 ### Mise à jour de la branche de développement
 
 ```
-git checkout developpment
+git checkout develop
 git pull --rebase
 ```
 
 \pause
 
-Conflit géré en downstream dans les branches de feature !
+Conflits gérés en downstream dans les branches de feature.
 
-### Mise a jour de la branche de développement
+### Mise à jour de la branche de développement
 
 \center
 \includegraphics[width=2cm]{img/push-n-pull-rebase-result.png}
 
-### Mise a jour de la branche de développement
+### Mise à jour de la branche de développement
 
-Met les repos locaux en dessus des commits déjà présents dans la remote,
-Les références des commits locaux changeront
-Arbres linéaire
+Met les repos locaux en dessus des commits déjà présents dans la remote.
+Les références des commits locaux changeront.
+Historique linéaire.
 
 # Aparté sur le rebase
 
@@ -248,7 +248,7 @@ J'écrase les références existantes et les remplace par la mienne.
 
 ### Solutions
 
-* Ne jamais utiliser push force !
+* Ne jamais utiliser push force.
 
 \pause
 
@@ -256,7 +256,7 @@ En cas d'exception se référer à la ligne d'avant.
 
 \pause
 
-* N'utiliser le rebase sur les branches locales
+* N'utiliser le rebase que sur les branches locales
 * Dans le doute, utiliser le `merge --no-ff`.
 
 
@@ -264,13 +264,14 @@ En cas d'exception se référer à la ligne d'avant.
 
 ```
 git checkout master
-git merge --no-ff developpment
+git merge --no-ff develop
 git push origin master
 ```
 
 \pause
 
 Pas de conflit de merge
+Version simplifiée
 
 ### Tagger la production
 
@@ -284,14 +285,14 @@ git push --tags
 
 \pause
 
-* Diffèrent d'une branche.
+* Différent d'une branche.
 
 ### Conclusion intermédiaire
 
 Problème du workflow précèdent:
 
-* Transparence
-* Peer review
+* Transparence.
+* Peer review.
 
 # Gitlab, Gitflow 0.2
 
@@ -304,7 +305,7 @@ Problème du workflow précèdent:
 
 * Merge dans la branche de développement des features sont publiques.
 * Déploiement en production fait de la même manière.
-* Review des demandes de merges
+* Review des demandes de merges.
 
 ### Review
 
@@ -320,6 +321,8 @@ Problème du workflow précèdent:
 ### Git facile
 
 * Gestion des modifications des fichiers à travers la GUI.
+* Création des branches 
+* Visualisation et édition de l'historique.
 
 ### Aparté Github
 
@@ -327,6 +330,8 @@ Problème du workflow précèdent:
 * Un fork est simplement une autre remote.
 * Public pour des contributions a l'open source ou publication.
 * Tous les laboratoires de l'EPFL sont dessus.
+\pause
+* Ce talk aussi !
 
 ### Aller plus loin
 
